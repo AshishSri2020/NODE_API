@@ -11,6 +11,8 @@ const containerId = "sample collection";
 var express = require('express');
 var app = express();
 
+app.send('testing');
+
 //=====end azure database========
 
 //app.get('/', function (req, res)
@@ -106,7 +108,7 @@ async function uploaddata(groupname, companyname, userid, fileName, content) {
     }
 }
 
-FetchData().catch(handleError);;
+///FetchData().catch(handleError);;
 ////FetchData(); 
 
 
