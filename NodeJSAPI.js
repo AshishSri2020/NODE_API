@@ -7,6 +7,7 @@ const client = new CosmosClient({ endpoint, key });
 const databaseid = "sample database";
 const containerId = "sample collection";
 
+return;
 
 var express = require('express');
 var app = express();
