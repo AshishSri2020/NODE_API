@@ -2,8 +2,6 @@
 var http = require('http');
 var port = process.env.PORT || 1337;
 
-
-
 //=====to connect azure database
 const { CosmosClient } = require("@azure/cosmos");
 const endpoint = "https://sampledb123.documents.azure.com:443/"; // Add your endpoint
@@ -19,67 +17,27 @@ var app = express();
 
 //=====end azure database========
 
-//app.get('/', function (req, res)
-//{
-
-//    //Promise.all([promise1, promise2, promise3]).then(function (values) {
-//    //    console.log(values);
-//    //});  
-//    //var str = FetchData();
-//    res.send(str.then(() => FetchData()));
-//   //res.send(str.all([promise1, promise2, promise3]).then(function (values) { console.log(values) }));
-//  });
-
-
-app.get('/display', async (request, response) => {
+app.get('/', async (request, response) => {
     // awaiting Promises here
 
     // if you just await a single promise, you could simply return with it,
-    // no need to await for it
-    response.send('testing');
-    response.ends;
-    return;
+    // no need to await for it  
     let result = await FetchData();
     let resultString = "";
     let printresultString = [];
 
-    let i = 0;
-
-    //for (var queryResult of result) {        
-    //  printresultString = result[i].content["Sheet1"];
-    //        i = i + 1;
-    //  }
+    let i = 0;   
 
     for (i = 0; i < result.length; i++) {
         printresultString.push(result[i].content["Sheet1"]);
-    }
+    } 
 
-    //for (i = 0; i <= printresultString.length; i++) {
-    //    resultString += printresultString[i].A + "<br/>";
-    //   //i = i + 1;
-    // }
-    //for (var queryResult of result) {
-    //    resultString = JSON.stringify('id:' + queryResult.id + ' , content: ' + queryResult.content);    
-    //  response.json(resultString);
-    // console.log(`\tQuery returned ${resultString}\n`);                          
-    //}       
-
-    ////    //response.send(`\tQuery returned ${resultString}\n`);
-    //for (let i = 0; i < result.length; i++) {
-    //    printresultString.push(result[i].content["Sheet1"]);
-    //}
-
-  //  response.json(printresultString);
-//    response.end();
+    response.json(printresultString);
+    response.end();
 })
 
-http.createServer(function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('/display');
-}).listen(port);
-
-//app.listen(process.env.port);
-//return;
+app.listen(process.env.port);
+return;
 
 //========Get Method to get entry data
 async function FetchData() {
