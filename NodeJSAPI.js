@@ -25,7 +25,7 @@ var app = express();
 //  });
 
 
-app.get('/', async (request, response) => {
+app.get('/display', async (request, response) => {
     // awaiting Promises here
 
     // if you just await a single promise, you could simply return with it,
@@ -64,8 +64,8 @@ app.get('/', async (request, response) => {
     response.end();
 })
 
-app.listen(process.env.port);
-return;
+//app.listen(process.env.port);
+//return;
 
 //========Get Method to get entry data
 async function FetchData() {
