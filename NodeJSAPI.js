@@ -25,7 +25,7 @@ var app = express();
 //  });
 
 
-app.get('/display', async (request, response) => {
+app.get('/', async (request, response) => {
     // awaiting Promises here
 
     // if you just await a single promise, you could simply return with it,
