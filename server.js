@@ -7,4 +7,4 @@ http.createServer(function (req, res) {
     res.end('Hello World\n');
 }).listen(port);
 
-var cosmos = require('./NodeJSAPI/display');
+var cosmos = require('./NodeJSAPI');
