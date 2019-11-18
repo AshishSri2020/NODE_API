@@ -2,10 +2,7 @@
 var http = require('http');
 var port = process.env.PORT || 1337;
 
-//http.createServer(function (req, res) {
-    //res.writeHead(200, { 'Content-Type': 'text/plain' });
-    //res.end('Hello World\n');
-//}).listen(port);
+
 
 //=====to connect azure database
 const { CosmosClient } = require("@azure/cosmos");
@@ -34,7 +31,7 @@ var app = express();
 //  });
 
 
-app.get('/', async (request, response) => {
+app.get('/display', async (request, response) => {
     // awaiting Promises here
 
     // if you just await a single promise, you could simply return with it,
@@ -76,8 +73,13 @@ app.get('/', async (request, response) => {
 //    response.end();
 })
 
-app.listen(process.env.port);
-return;
+http.createServer(function (req, res) {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('/display');
+}).listen(port);
+
+//app.listen(process.env.port);
+//return;
 
 //========Get Method to get entry data
 async function FetchData() {
