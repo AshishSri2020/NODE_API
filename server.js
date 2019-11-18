@@ -39,6 +39,9 @@ app.get('/', async (request, response) => {
 
     // if you just await a single promise, you could simply return with it,
     // no need to await for it
+    response.send('testing');
+    response.ends;
+    return;
     let result = await FetchData();
     let resultString = "";
     let printresultString = [];
@@ -69,8 +72,8 @@ app.get('/', async (request, response) => {
     //    printresultString.push(result[i].content["Sheet1"]);
     //}
 
-    response.json(printresultString);
-    response.end();
+  //  response.json(printresultString);
+//    response.end();
 })
 
 app.listen(process.env.port);
