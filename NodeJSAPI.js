@@ -11,20 +11,15 @@ const containerId = "sample collection";
 var express = require('express');
 var app = express();
 
-app.send('testing');
-
 //=====end azure database========
 
-//app.get('/', function (req, res)
-//{
-
-//    //Promise.all([promise1, promise2, promise3]).then(function (values) {
-//    //    console.log(values);
-//    //});  
-//    //var str = FetchData();
-//    res.send(str.then(() => FetchData()));
-//   //res.send(str.all([promise1, promise2, promise3]).then(function (values) { console.log(values) }));
-//  });
+app.get('/display', function (req, res)
+{
+    res.send('testing');
+    res.end();
+    //res.send(str.then(() => FetchData()));
+    //res.send(str.all([promise1, promise2, promise3]).then(function (values) { console.log(values) }));
+});
 
 
 app.get('/', async (request, response) => {
