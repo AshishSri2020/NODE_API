@@ -64,8 +64,8 @@ app.get('/', async (request, response) => {
     response.end();
 })
 
-//app.listen(process.env.port);
-//return;
+app.listen(process.env.port);
+return;
 
 //========Get Method to get entry data
 async function FetchData() {
